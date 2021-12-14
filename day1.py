@@ -1,16 +1,22 @@
-# This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+def processFile(filename):
+    count = 0
+    with open(filename) as f:
+        last = f.readline().strip() # Prime the pump by reading the first row
+        row = f.readline().strip() # setup the first comparison
+        while row: # if there are still more lines, keep going...
+            if int(last) < int(row):
+                count += 1
+            last = row
+            row = f.readline().strip()
+
+    return count
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    # Ensure the test data passes
+    assert(processFile("day1/example.dat") == 7)
+    # process the new data
+    output = processFile("day1/raw.dat")
+    print("raw.dat contains %d increases" % output)
 
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
