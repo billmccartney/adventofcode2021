@@ -1,5 +1,5 @@
 
-def processFile(filename):
+def processFilePart1(filename):
     count = 0
     with open(filename) as f:
         last = f.readline().strip() # Prime the pump by reading the first row
@@ -15,8 +15,8 @@ def processFile(filename):
 
 if __name__ == '__main__':
     # Ensure the test data passes
-    assert(processFile("day1/example.dat") == 7)
+    assert(processFilePart1("day1/example.dat") == 7)
     # process the new data
-    output = processFile("day1/raw.dat")
-    print("raw.dat contains %d increases" % output)
+    output = processFilePart1("day1/raw.dat")
+    print("Part 1: raw.dat contains %d increases" % output)
 
